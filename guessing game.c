@@ -3,10 +3,8 @@
 #include <time.h>
 #include <string.h>
 #include <stdbool.h>
-//seed;
 int past_card[100];
 int rounds = 0 ;
-
 void getcard(int *suit, int *rank ) {
     int rand_suit;
     int rand_rank;
@@ -164,14 +162,7 @@ int main() {
 
 
 
-
         
 
         }
-    /*
-        getcard(&suit, &rank);
-        stringifycard(suit, rank, output);
-        printf("%s\n",output);
-
-*/
 }
