@@ -1,1 +1,1 @@
-It is a cross-platform game where you guess if the next card is high or lower, currently, the game only has a CLI.
+It is a cross-platform "game" written in C in which you guess whether the next card is high or low. Currently, the game only has a CLI.
