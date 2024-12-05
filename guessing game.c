@@ -10,10 +10,9 @@ void getcard(int *suit, int *rank ) {
     int rand_rank;
      int card_num;
     cardstart:
-    rand_suit = random() % 4;
-    rand_rank = random() % 13;
-    *suit = rand_suit + 1;
-    *rank = rand_rank + 2;
+    *suit = (rand() % 4) + 1;
+    *rank = (rand() % 13) + 2;
+    
     card_num = *suit * *rank;
 
 
