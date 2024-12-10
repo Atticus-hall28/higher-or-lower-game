@@ -5,38 +5,32 @@
 #include <stdbool.h>
 int past_card[100];
 int rounds = 0 ;
+	
+//randomly generates a card
 void getcard(int *suit, int *rank ) {
     int rand_suit;
     int rand_rank;
      int card_num;
+
     cardstart:
     *suit = (rand() % 4) + 1;
     *rank = (rand() % 13) + 2;
-    
     card_num = *suit * *rank;
-
-
 
     for(int i = 0; i < rounds; i++) {
         if (past_card[i] == card_num) {
             goto cardstart;
         }
-
     }
-
-
 
      past_card[rounds] = card_num;
      rounds++;
-
-
 }
 
-
+//formats the card into a human readable version/
 void stringifycard(int suit, int rank, char output[] ) {
     char suit_string[10];
     char rank_string[10];
-  
 
     switch (suit) {
         case 1:
@@ -69,18 +63,16 @@ void stringifycard(int suit, int rank, char output[] ) {
         default:
              sprintf(rank_string, "%d",rank);
              break;
-
-    
     }
 
     strcpy(output, rank_string);
     strcat(output, " of ");
     strcat(output, suit_string);
-
 }
 
 
 int main() {
+    //variable definition 
     int suit,rank,next_suit,next_rank;
     char output[100];
     bool running = true;
@@ -90,6 +82,7 @@ int main() {
     unsigned int seed = time(0);
     srand(seed);
     char play_again;
+
     start:
     getcard(&suit, &rank);
     stringifycard(suit, rank, output);
@@ -110,6 +103,7 @@ int main() {
                 printf("invalid option, make sure you say either 'higher' or 'lower' \n");
                 fgets(guess, sizeof(guess), stdin);
                 length = strlen(guess); 
+		//removes a trailling newline
                 if (length > 0 && guess[length - 1] == '\n') {
                      guess[length - 1] = '\0'; }
             
@@ -128,7 +122,7 @@ int main() {
              }
 
 
-
+		
                 suit = next_suit;
                 rank = next_rank;
                 stringifycard(suit, rank, output);
